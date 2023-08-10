@@ -375,9 +375,7 @@
     var animationFrame;
     var destroy;
 
-    if (fettis.shape.substring(0, 6) === 'emoji:') {
-      context.font = "3em Arial";
-    }
+    context.font = "3em Arial";
 
     var prom = promise(function (resolve) {
       function onDone() {
