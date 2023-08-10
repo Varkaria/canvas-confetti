@@ -513,7 +513,7 @@
       } else if (isLibCanvas && !canvas) {
         // create and initialize a new canvas
         canvas = getCanvas(zIndex);
-        document.body.appendChild(canvas);
+        document.getElementById('message-overlay').appendChild(canvas);
       }
 
       if (allowResize && !initialized) {
