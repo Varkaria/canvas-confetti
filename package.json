@@ -1,5 +1,5 @@
 {
-  "name": "canvas-confetti",
+  "name": "@varkaria/canvas-confetti",
   "version": "1.6.0",
   "description": "performant confetti animation in the browser",
   "main": "src/confetti.js",
