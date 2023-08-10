@@ -1,6 +1,6 @@
 {
   "name": "@varkaria/canvas-confetti",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "performant confetti animation in the browser",
   "main": "src/confetti.js",
   "module": "dist/confetti.module.mjs",

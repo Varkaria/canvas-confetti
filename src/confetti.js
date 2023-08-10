@@ -513,7 +513,7 @@
       } else if (isLibCanvas && !canvas) {
         // create and initialize a new canvas
         canvas = getCanvas(zIndex);
-        document.getElementById('message-overlay').appendChild(canvas);
+        document.getElementById('confetti').appendChild(canvas);
       }
 
       if (allowResize && !initialized) {
