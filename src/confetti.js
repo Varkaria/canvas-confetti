@@ -10,7 +10,7 @@
     global.URL &&
     global.URL.createObjectURL);
 
-  function noop() {}
+  function noop() { }
 
   // create a promise if it exists, otherwise, just
   // call the function directly
@@ -106,7 +106,7 @@
           worker.addEventListener('message', workerDone);
           execute(options, id);
 
-          resolves[id] = workerDone.bind(null, { data: { callback: id }});
+          resolves[id] = workerDone.bind(null, { data: { callback: id } });
         });
 
         return prom;
@@ -208,7 +208,7 @@
     );
   }
 
-  function onlyPositiveInt(number){
+  function onlyPositiveInt(number) {
     return number < 0 ? 0 : Math.floor(number);
   }
 
@@ -229,13 +229,13 @@
     var val = String(str).replace(/[^0-9a-f]/gi, '');
 
     if (val.length < 6) {
-        val = val[0]+val[0]+val[1]+val[1]+val[2]+val[2];
+      val = val[0] + val[0] + val[1] + val[1] + val[2] + val[2];
     }
 
     return {
-      r: toDecimal(val.substring(0,2)),
-      g: toDecimal(val.substring(2,4)),
-      b: toDecimal(val.substring(4,6))
+      r: toDecimal(val.substring(0, 2)),
+      g: toDecimal(val.substring(2, 4)),
+      b: toDecimal(val.substring(4, 6))
     };
   }
 
@@ -334,6 +334,8 @@
       context.ellipse ?
         context.ellipse(fetti.x, fetti.y, Math.abs(x2 - x1) * fetti.ovalScalar, Math.abs(y2 - y1) * fetti.ovalScalar, Math.PI / 10 * fetti.wobble, 0, 2 * Math.PI) :
         ellipse(context, fetti.x, fetti.y, Math.abs(x2 - x1) * fetti.ovalScalar, Math.abs(y2 - y1) * fetti.ovalScalar, Math.PI / 10 * fetti.wobble, 0, 2 * Math.PI);
+    } else if (fetti.shape.substring(0, 6) === 'emoji:') {
+      context.fillText(fetti.shape.substring(6), x1, y1);
     } else if (fetti.shape === 'star') {
       var rot = Math.PI / 2 * 3;
       var innerRadius = 4 * fetti.scalar;
@@ -372,6 +374,10 @@
     var context = canvas.getContext('2d');
     var animationFrame;
     var destroy;
+
+    if (fettis.shape.substring(0, 6) === 'emoji:') {
+      context.font = "3em Arial";
+    }
 
     var prom = promise(function (resolve) {
       function onDone() {
@@ -488,7 +494,7 @@
         return animationObj.addFettis(fettis);
       }
 
-      animationObj = animate(canvas, fettis, resizer, size , done);
+      animationObj = animate(canvas, fettis, resizer, size, done);
 
       return animationObj.promise;
     }
@@ -606,10 +612,10 @@
     return defaultFire;
   }
 
-  module.exports = function() {
+  module.exports = function () {
     return getDefaultFire().apply(this, arguments);
   };
-  module.exports.reset = function() {
+  module.exports.reset = function () {
     getDefaultFire().reset();
   };
   module.exports.create = confettiCannon;
