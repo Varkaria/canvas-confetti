@@ -513,7 +513,7 @@
       } else if (isLibCanvas && !canvas) {
         // create and initialize a new canvas
         canvas = getCanvas(zIndex);
-        document.getElementById('confetti').appendChild(canvas);
+        document.body.appendChild(canvas);
       }
 
       if (allowResize && !initialized) {
